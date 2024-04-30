@@ -39,7 +39,7 @@ jobs:
 
       - uses: ./.github/actions/deploy
         with:
-          enviroment: 'DEV'
+          enviroment: DEV
           port: 7001
 
   tests-on-dev:
