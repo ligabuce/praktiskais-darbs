@@ -12,8 +12,18 @@ jobs:
   install-pip-deps:
     runs-on: self-hosted
     steps:
+      - uses: actions/checkout@v3.5.2
+
+      - uses: actions/checkout@v3.5.2
+        with:
+          repository: ligabuce/python-greetings
+          path: python-greetings
+
       - name: Install Pip Dependencies
-        run: echo "Installing all required dependencies.."
+        working-directory: ./python-greetings
+        run:
+          pip install -r requirements.txt
+          echo "Installing all required dependencies.."
 
   deploy-to-dev:
     runs-on: self-hosted
