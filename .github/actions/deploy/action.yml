@@ -25,10 +25,10 @@ runs:
 
     - name: Delete services
       working-directory: python-greetings
-      run: pm2 delete greetings-app-${{ inputs.enviroment }} || set "errorlevel=0"
+      run: pm2 delete greetings-app-${{ inputs.enviroment }} || true
       shell: cmd
 
     - name: Start services
       working-directory: python-greetings
-      run: pm2 start -n ${{ inputs.enviroment }} index.js -- ${{ inputs.port }}
+      run: pm2 start app.py --name greetings-app-${{ inputs.enviroment }} -- --port ${{ inputs.port }}
       shell: cmd
