@@ -37,6 +37,11 @@ jobs:
           repository: ligabuce/python-greetings
           path: python-greetings
 
+      - uses: actions/checkout@v3.5.2
+        with:
+          repository: ligabuce/course-js-api-framework
+          path: course-js-api-framework
+          
       - uses: ./.github/actions/deploy
         with:
           port: 7001
