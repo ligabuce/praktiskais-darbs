@@ -25,7 +25,7 @@ runs:
 
     - name: Delete services
       working-directory: python-greetings
-      run: pm2 delete greetings-app-${{ inputs.enviroment }} || true
+      run: pm2 delete greetings-app-${{ inputs.enviroment }} & EXIT /B 0
       shell: cmd
 
     - name: Start services
