@@ -14,34 +14,34 @@ jobs:
     steps:
       - name: Install Pip Dependencies
         run: echo "Installing all required dependencies.."
-        
+
   deploy-to-dev:
     runs-on: self-hosted
     needs: install-pip-deps
     steps:
-      - name: Deploy to Development Environment
-        run: echo "Deploying to development environment.."
+      - name: Deploy to DEV Environment
+        run: echo "Deploying to DEV environment.."
 
   tests-on-dev:
     runs-on: self-hosted
     needs: deploy-to-dev
     steps:
-      - name: Run Tests on Development Environment
-        run: echo "Running tests on development environment.."
+      - name: Run Tests on DEV Environment
+        run: echo "Running tests on DEV environment.."
 
   deploy-to-staging:
     runs-on: self-hosted
     needs: tests-on-dev
     steps:
-      - name: Deploy to Staging Environment
-        run: echo "Deploying to staging environment.."
+      - name: Deploy to STG Environment
+        run: echo "Deploying to STG environment.."
 
   tests-on-staging:
     runs-on: self-hosted
     needs: deploy-to-staging
     steps:
-      - name: Run Tests on Staging Environment
-        run: echo "Running tests on staging environment.."
+      - name: Run Tests on STG Environment
+        run: echo "Running tests on STG environment.."
 
   deploy-to-preprod:
     runs-on: self-hosted
@@ -61,12 +61,12 @@ jobs:
     runs-on: self-hosted
     needs: tests-on-preprod
     steps:
-      - name: Deploy to Production Environment
-        run: echo "Deploying to production environment.."
+      - name: Deploy to PRD Environment
+        run: echo "Deploying to PRD environment.."
 
   tests-on-prod:
     runs-on: self-hosted
     needs: deploy-to-prod
     steps:
-      - name: Run Tests on Production Environment
-        run: echo "Running tests on production environment.."
+      - name: Run Tests on PRD Environment
+        run: echo "Running tests on PRD environment.."
