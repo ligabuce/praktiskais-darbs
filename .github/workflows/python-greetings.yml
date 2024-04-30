@@ -16,7 +16,7 @@ jobs:
 
       - uses: actions/checkout@v3.5.2
         with:
-          repository: ligabuce/python-greetings
+          repository: mtararujs/python-greetings
           path: python-greetings
 
       - name: Install Pip Dependencies
@@ -36,10 +36,13 @@ jobs:
 
       - uses: actions/checkout@v3.5.2
         with:
-          repository: ligabuce/python-greetings
+          repository: mtararujs/python-greetings
           path: python-greetings
 
-      
+      - name: Stop Existing Service
+        working-directory: python-greetings
+        run: |
+          pm2 delete greetings-app-dev & set "errorlevel=0"
 
       - name: Start DEV service
         working-directory: python-greetings
