@@ -22,8 +22,8 @@ runs:
       shell: cmd
 
     - name: Delete services
-       run: pm2 delete greetings-app-${{ inputs.enviroment }} || set "errorlevel=0"
-       shell: cmd
+      run: pm2 delete greetings-app-${{ inputs.enviroment }} || set "errorlevel=0"
+      shell: cmd
 
     - name: Start services
       run: pm2 start -n ${{ inputs.enviroment }} index.js -- ${{ inputs.port }}
