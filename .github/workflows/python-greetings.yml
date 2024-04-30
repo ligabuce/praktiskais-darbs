@@ -28,10 +28,8 @@ jobs:
   deploy-to-dev:
     runs-on: self-hosted
     needs: install-pip-deps
-    steps:
-      - name: Deploy to DEV Environment
-        run: echo Deploying to DEV environment..
 
+    steps:
       - uses: actions/checkout@v3.5.2
 
       - uses: actions/checkout@v3.5.2
@@ -39,15 +37,10 @@ jobs:
           repository: mtararujs/python-greetings
           path: python-greetings
 
-      - name: Stop Existing Service
-        working-directory: python-greetings
-        run: |
-          pm2 delete greetings-app-dev & set "errorlevel=0"
-
-      - name: Start DEV service
-        working-directory: python-greetings
-        run: |
-          pm2 start app.py --name greetings-app-dev -- --port 7001
+      - uses: ./.github/actions/deploy
+        with:
+          enviroment: 'DEV'
+          port: '7001'
 
   tests-on-dev:
     runs-on: self-hosted
