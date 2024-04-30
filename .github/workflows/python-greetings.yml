@@ -20,7 +20,7 @@ jobs:
           path: python-greetings
 
       - name: Install Pip Dependencies
-        working-directory: ./python-greetings
+        working-directory: python-greetings
         run:
           pip install -r requirements.txt
           echo "Installing all required dependencies.."
