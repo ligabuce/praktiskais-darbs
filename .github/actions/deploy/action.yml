@@ -19,13 +19,16 @@ runs:
       shell: cmd
 
     - name: Install pm2
+      working-directory: python-greetings
       run: npm install -g pm2
       shell: cmd
 
     - name: Delete services
+      working-directory: python-greetings
       run: pm2 delete greetings-app-${{ inputs.enviroment }} || set "errorlevel=0"
       shell: cmd
 
     - name: Start services
+      working-directory: python-greetings
       run: pm2 start -n ${{ inputs.enviroment }} index.js -- ${{ inputs.port }}
       shell: cmd
