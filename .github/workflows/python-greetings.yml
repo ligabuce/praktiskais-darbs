@@ -16,7 +16,7 @@ jobs:
 
       - uses: actions/checkout@v3.5.2
         with:
-          repository: mtararujs/python-greetings
+          repository: ligabuce/python-greetings
           path: python-greetings
 
       - name: Install Pip Dependencies
@@ -34,7 +34,7 @@ jobs:
 
       - uses: actions/checkout@v3.5.2
         with:
-          repository: mtararujs/python-greetings
+          repository: ligabuce/python-greetings
           path: python-greetings
 
       - uses: ./.github/actions/deploy
