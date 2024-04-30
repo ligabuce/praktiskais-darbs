@@ -27,7 +27,7 @@ jobs:
 
   deploy-to-dev:
     runs-on: self-hosted
-    needs: install-pip-deps
+    needs: [install-pip-deps]
 
     steps:
       - uses: actions/checkout@v3.5.2
@@ -39,19 +39,19 @@ jobs:
 
       - uses: ./.github/actions/deploy
         with:
-          enviroment: DEV
+          enviroment: 'DEV'
           port: 7001
 
   tests-on-dev:
     runs-on: self-hosted
-    needs: deploy-to-dev
+    needs: [deploy-to-dev]
     steps:
       - name: Run Tests on DEV Environment
         run: echo Running tests on DEV environment..
 
   deploy-to-staging:
     runs-on: self-hosted
-    needs: tests-on-dev
+    needs: [tests-on-dev]
     steps:
       - name: Deploy to STG Environment
         run: echo Deploying to STG environment..
