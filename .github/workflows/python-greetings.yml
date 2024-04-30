@@ -30,19 +30,23 @@ jobs:
     needs: [install-pip-deps]
 
     steps:
-      - uses: actions/checkout@v3.5.2
+      - name: Access repository
+        uses: actions/checkout@v3.5.2
 
-      - uses: actions/checkout@v3.5.2
+      - name: Clone python-greetings
+        uses: actions/checkout@v3.5.2
         with:
           repository: ligabuce/python-greetings
           path: python-greetings
 
-      - uses: actions/checkout@v3.5.2
+      - name: Clone course-js-api-framework
+        uses: actions/checkout@v3.5.2
         with:
           repository: ligabuce/course-js-api-framework
           path: course-js-api-framework
-          
-      - uses: ./.github/actions/deploy
+
+      - name: Deploy pm2 actions with actions.yml file
+        uses: ./.github/actions/deploy
         with:
           port: 7001
           enviroment: 'DEV'
