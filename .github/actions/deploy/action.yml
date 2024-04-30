@@ -13,9 +13,9 @@ runs:
       run: echo Deploying to ${{ inputs.enviroment }} environment ..
       shell: cmd
     
-    - name: Install dependencies
-      run: npm install
-      shell: cmd
+#    - name: Install dependencies
+ #     run: npm install
+ #     shell: cmd
 
     - name: Install pm2
       run: npm install -g pm2
