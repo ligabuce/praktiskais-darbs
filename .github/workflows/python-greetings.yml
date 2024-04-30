@@ -23,60 +23,60 @@ jobs:
         working-directory: python-greetings
         run:
           pip install -r requirements.txt
-          echo "Installing all required dependencies.."
+          echo Installing all required dependencies..
 
   deploy-to-dev:
     runs-on: self-hosted
     needs: install-pip-deps
     steps:
       - name: Deploy to DEV Environment
-        run: echo "Deploying to DEV environment.."
+        run: echo Deploying to DEV environment..
 
   tests-on-dev:
     runs-on: self-hosted
     needs: deploy-to-dev
     steps:
       - name: Run Tests on DEV Environment
-        run: echo "Running tests on DEV environment.."
+        run: echo Running tests on DEV environment..
 
   deploy-to-staging:
     runs-on: self-hosted
     needs: tests-on-dev
     steps:
       - name: Deploy to STG Environment
-        run: echo "Deploying to STG environment.."
+        run: echo Deploying to STG environment..
 
   tests-on-staging:
     runs-on: self-hosted
     needs: deploy-to-staging
     steps:
       - name: Run Tests on STG Environment
-        run: echo "Running tests on STG environment.."
+        run: echo Running tests on STG environment..
 
   deploy-to-preprod:
     runs-on: self-hosted
     needs: tests-on-staging
     steps:
       - name: Deploy to Pre-production Environment
-        run: echo "Deploying to pre-production environment.."
+        run: echo Deploying to pre-production environment..
 
   tests-on-preprod:
     runs-on: self-hosted
     needs: deploy-to-preprod
     steps:
       - name: Run Tests on Pre-production Environment
-        run: echo "Running tests on pre-production environment.."
+        run: echo Running tests on pre-production environment..
 
   deploy-to-prod:
     runs-on: self-hosted
     needs: tests-on-preprod
     steps:
       - name: Deploy to PRD Environment
-        run: echo "Deploying to PRD environment.."
+        run: echo Deploying to PRD environment..
 
   tests-on-prod:
     runs-on: self-hosted
     needs: deploy-to-prod
     steps:
       - name: Run Tests on PRD Environment
-        run: echo "Running tests on PRD environment.."
+        run: echo Running tests on PRD environment..
