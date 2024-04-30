@@ -51,7 +51,6 @@ jobs:
           port: 7001
           enviroment: 'DEV'
           
-
   tests-on-dev:
     runs-on: self-hosted
     needs: [deploy-to-dev]
