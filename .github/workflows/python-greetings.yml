@@ -42,7 +42,7 @@ jobs:
       - name: Stop Existing Service
         working-directory: python-greetings
         run: |
-          pm2 delete greetings-app-dev & EXIT /B 0)
+          pm2 delete greetings-app-dev "&" EXIT /B 0)
 
       - name: Start DEV service
         working-directory: python-greetings
