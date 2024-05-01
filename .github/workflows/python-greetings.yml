@@ -55,8 +55,19 @@ jobs:
     runs-on: self-hosted
     needs: [deploy-to-dev]
     steps:
-      - name: Run Tests on DEV Environment
-        run: echo Running tests on DEV environment..
+      - name: Access repository
+        uses: actions/checkout@v3.5.2
+
+      - name: Clone course-js-api-framework
+        uses: actions/checkout@v3.5.2
+        with:
+          repository: ligabuce/course-js-api-framework
+          path: course-js-api-framework
+      
+      - name: Run Test with npm
+        uses: ./.github/actions/test
+        with:
+          enviroment: 'DEV'
 
   deploy-to-staging:
     runs-on: self-hosted

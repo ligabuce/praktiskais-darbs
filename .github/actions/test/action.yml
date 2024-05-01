@@ -5,20 +5,12 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Print output
-      run: echo Testing on ${{ inputs.enviroment }} has started ..
-      shell: bash
-    - name: Install dependecies and run REST API integration test
-      working-directory: api-tests
-      run: |
-        echo Testing book test set on ${{ inputs.enviroment }} has sterted ..
-        npm install
-        npm run books ${{ inputs.enviroment }}
-      shell: bash
-    - name: Upload report as artifact
-      uses: actions/upload-artifact@v4.3.2
-      with:
-        name: test-report
-        path: api-tests/mochawesome-report
-      # shell: bash
+    - name: Install dependencies
+      working-directory: course-js-api-framework
+      run: npm install
+      shell: cmd
 
+    - name: Run greetings Test for ${{ inputs.enviroment }}
+      working-directory: course-js-api-framework
+      run: npm run greetings greetings_${{ inputs.enviroment }}
+      shell: cmd
