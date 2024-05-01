@@ -49,7 +49,7 @@ jobs:
         uses: ./.github/actions/deploy
         with:
           port: 7001
-          enviroment: 'DEV'
+          enviroment: 'dev'
           
   tests-on-dev:
     runs-on: self-hosted
@@ -61,13 +61,13 @@ jobs:
       - name: Clone course-js-api-framework
         uses: actions/checkout@v3.5.2
         with:
-          repository: 'ligabuce/course-js-api-framework'
-          path: 'course-js-api-framework'
+          repository: ligabuce/course-js-api-framework
+          path: course-js-api-framework
       
       - name: Run Test with npm
         uses: ./.github/actions/test
         with:
-          enviroment: 'DEV'
+          enviroment: 'dev'
 
   deploy-to-staging:
     runs-on: self-hosted
@@ -92,7 +92,7 @@ jobs:
         uses: ./.github/actions/deploy
         with:
           port: 7002
-          enviroment: 'STG'
+          enviroment: 'staging'
 
   tests-on-staging:
     runs-on: self-hosted
@@ -124,7 +124,7 @@ jobs:
         uses: ./.github/actions/deploy
         with:
           port: 7003
-          enviroment: 'PPRD'
+          enviroment: 'preprod'
 
   tests-on-preprod:
     runs-on: self-hosted
@@ -156,7 +156,7 @@ jobs:
         uses: ./.github/actions/deploy
         with:
           port: 7004
-          enviroment: 'PRD'
+          enviroment: 'prod'
 
   tests-on-prod:
     runs-on: self-hosted

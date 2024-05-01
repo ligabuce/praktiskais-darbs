@@ -1,7 +1,7 @@
 inputs:
   enviroment:
     description: 'Enviroment for node aplication'
-    default: 'DEV'
+    default: 'dev'
 runs:
   using: "composite"
   steps:
