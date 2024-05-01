@@ -96,14 +96,25 @@ jobs:
 
   tests-on-staging:
     runs-on: self-hosted
-    needs: deploy-to-staging
+    needs: [deploy-to-staging]
     steps:
-      - name: Run Tests on STG Environment
-        run: echo Running tests on STG environment..
+      - name: Access repository
+        uses: actions/checkout@v3.5.2
+
+      - name: Clone course-js-api-framework
+        uses: actions/checkout@v3.5.2
+        with:
+          repository: ligabuce/course-js-api-framework
+          path: course-js-api-framework-path
+      
+      - name: Run Test with npm
+        uses: ./.github/actions/test
+        with:
+          enviroment: 'staging'
 
   deploy-to-preprod:
     runs-on: self-hosted
-    needs: tests-on-staging
+    needs: [tests-on-staging]
     steps:
       - name: Access repository
         uses: actions/checkout@v3.5.2
@@ -128,14 +139,25 @@ jobs:
 
   tests-on-preprod:
     runs-on: self-hosted
-    needs: deploy-to-preprod
+    needs: [deploy-to-preprod]
     steps:
-      - name: Run Tests on Pre-production Environment
-        run: echo Running tests on pre-production environment..
+      - name: Access repository
+        uses: actions/checkout@v3.5.2
+
+      - name: Clone course-js-api-framework
+        uses: actions/checkout@v3.5.2
+        with:
+          repository: ligabuce/course-js-api-framework
+          path: course-js-api-framework-path
+      
+      - name: Run Test with npm
+        uses: ./.github/actions/test
+        with:
+          enviroment: 'preprod'
 
   deploy-to-prod:
     runs-on: self-hosted
-    needs: tests-on-preprod
+    needs: [tests-on-preprod]
     steps:
       - name: Access repository
         uses: actions/checkout@v3.5.2
@@ -160,7 +182,18 @@ jobs:
 
   tests-on-prod:
     runs-on: self-hosted
-    needs: deploy-to-prod
+    needs: [deploy-to-prod]
     steps:
-      - name: Run Tests on PRD Environment
-        run: echo Running tests on PRD environment..
+      - name: Access repository
+        uses: actions/checkout@v3.5.2
+
+      - name: Clone course-js-api-framework
+        uses: actions/checkout@v3.5.2
+        with:
+          repository: ligabuce/course-js-api-framework
+          path: course-js-api-framework-path
+      
+      - name: Run Test with npm
+        uses: ./.github/actions/test
+        with:
+          enviroment: 'proc'
