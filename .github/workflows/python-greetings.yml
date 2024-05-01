@@ -62,8 +62,26 @@ jobs:
     runs-on: self-hosted
     needs: [tests-on-dev]
     steps:
-      - name: Deploy to STG Environment
-        run: echo Deploying to STG environment..
+      - name: Access repository
+        uses: actions/checkout@v3.5.2
+
+      - name: Clone python-greetings
+        uses: actions/checkout@v3.5.2
+        with:
+          repository: ligabuce/python-greetings
+          path: python-greetings
+
+      - name: Clone course-js-api-framework
+        uses: actions/checkout@v3.5.2
+        with:
+          repository: ligabuce/course-js-api-framework
+          path: course-js-api-framework
+
+      - name: Deploy pm2 actions with actions.yml file
+        uses: ./.github/actions/deploy
+        with:
+          port: 7002
+          enviroment: 'STG'
 
   tests-on-staging:
     runs-on: self-hosted
@@ -76,8 +94,26 @@ jobs:
     runs-on: self-hosted
     needs: tests-on-staging
     steps:
-      - name: Deploy to Pre-production Environment
-        run: echo Deploying to pre-production environment..
+      - name: Access repository
+        uses: actions/checkout@v3.5.2
+
+      - name: Clone python-greetings
+        uses: actions/checkout@v3.5.2
+        with:
+          repository: ligabuce/python-greetings
+          path: python-greetings
+
+      - name: Clone course-js-api-framework
+        uses: actions/checkout@v3.5.2
+        with:
+          repository: ligabuce/course-js-api-framework
+          path: course-js-api-framework
+
+      - name: Deploy pm2 actions with actions.yml file
+        uses: ./.github/actions/deploy
+        with:
+          port: 7003
+          enviroment: 'PPRD'
 
   tests-on-preprod:
     runs-on: self-hosted
@@ -90,8 +126,26 @@ jobs:
     runs-on: self-hosted
     needs: tests-on-preprod
     steps:
-      - name: Deploy to PRD Environment
-        run: echo Deploying to PRD environment..
+      - name: Access repository
+        uses: actions/checkout@v3.5.2
+
+      - name: Clone python-greetings
+        uses: actions/checkout@v3.5.2
+        with:
+          repository: ligabuce/python-greetings
+          path: python-greetings
+
+      - name: Clone course-js-api-framework
+        uses: actions/checkout@v3.5.2
+        with:
+          repository: ligabuce/course-js-api-framework
+          path: course-js-api-framework
+
+      - name: Deploy pm2 actions with actions.yml file
+        uses: ./.github/actions/deploy
+        with:
+          port: 7004
+          enviroment: 'PRD'
 
   tests-on-prod:
     runs-on: self-hosted
