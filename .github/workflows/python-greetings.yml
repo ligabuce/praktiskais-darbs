@@ -52,7 +52,7 @@ jobs:
           enviroment: 'dev'
           
   tests-on-dev:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     needs: [deploy-to-dev]
     steps:
       - name: Access repository
