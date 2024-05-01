@@ -6,11 +6,11 @@ runs:
   using: "composite"
   steps:
     - name: Install dependencies
-      working-directory: course-js-api-framework
+      working-directory: course-js-api-framework-path
       run: npm install
-      shell: bash
+      shell: cmd
 
     - name: Run greetings for ${{ inputs.enviroment }}
-      working-directory: course-js-api-framework
+      working-directory: course-js-api-framework-path
       run: npm run greetings greetings_${{ inputs.enviroment }}
-      shell: bash
+      shell: cmd
