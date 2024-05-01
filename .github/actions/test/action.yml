@@ -10,7 +10,7 @@ runs:
       run: npm install
       shell: cmd
 
-    - name: Run greetings Test for ${{ inputs.enviroment }}
-      working-directory: course-js-api-framework
+    - name: Run greetings for ${{ inputs.enviroment }}
+      working-directory: course-js-api-framework/tests/steps
       run: npm run greetings greetings_${{ inputs.enviroment }}
       shell: cmd
