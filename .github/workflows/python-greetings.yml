@@ -67,7 +67,7 @@ jobs:
       - name: Run Test with npm
         uses: ./.github/actions/test
         with:
-          enviroment: 'DEV'
+          enviroment: 'dev'
 
   deploy-to-staging:
     runs-on: self-hosted
