@@ -12,5 +12,5 @@ runs:
 
     - name: Run greetings for ${{ inputs.enviroment }}
       working-directory: course-js-api-framework
-      run: npm run greetings ${{ inputs.enviroment }}
+      run: npm run greetings greetings_${{ inputs.enviroment }}
       shell: cmd

@@ -61,8 +61,8 @@ jobs:
       - name: Clone course-js-api-framework
         uses: actions/checkout@v3.5.2
         with:
-          repository: ligabuce/course-js-api-framework
-          path: course-js-api-framework
+          repository: 'ligabuce/course-js-api-framework'
+          path: 'course-js-api-framework'
       
       - name: Run Test with npm
         uses: ./.github/actions/test
