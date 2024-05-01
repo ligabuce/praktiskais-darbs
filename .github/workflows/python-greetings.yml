@@ -196,4 +196,4 @@ jobs:
       - name: Run Test with npm
         uses: ./.github/actions/test
         with:
-          enviroment: 'proc'
+          enviroment: 'prod'
